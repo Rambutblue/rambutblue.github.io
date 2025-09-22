@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { motion } from 'framer-motion';
 
 interface GlassCardProps {
     children: React.ReactNode;
@@ -6,11 +7,14 @@ interface GlassCardProps {
 }
 
 export const GlassCard: React.FC<GlassCardProps> = ({ children, className }) => (
-    <div className={`relative p-px rounded-2xl bg-gradient-to-b from-cyan-400/30 to-transparent ${className}`}>
+    <motion.div
+        whileHover={{ scale: 1.02 }}
+        className={`relative p-px rounded-2xl bg-gradient-to-b from-cyan-400/30 to-transparent ${className}`}
+    >
         <div className="bg-gray-900/80 backdrop-blur-lg rounded-[15px] p-6 shadow-lg">
             {children}
         </div>
-    </div>
+    </motion.div>
 );
 
 interface SectionTitleProps {
@@ -26,7 +30,21 @@ interface TagProps {
 }
 
 export const Tag: React.FC<TagProps> = ({ children }) => (
-    <span className="inline-block bg-cyan-900/50 text-cyan-300 text-xs font-medium mr-2 mb-2 px-3 py-1 rounded-full border border-cyan-700/50 transition-all duration-200 hover:bg-cyan-800/70 hover:text-cyan-200">
+    <motion.span
+        whileHover={{ scale: 1.1, boxShadow: "0 0 8px rgba(0, 255, 255, 0.5)" }}
+        className="inline-block bg-cyan-900/50 text-cyan-300 text-xs font-medium mr-2 mb-2 px-3 py-1 rounded-full border border-cyan-700/50 transition-all duration-200 hover:bg-cyan-800/70 hover:text-cyan-200"
+    >
         {children}
-    </span>
+    </motion.span>
+);
+
+interface CardProps {
+    children: React.ReactNode;
+    className?: string;
+}
+
+export const Card: React.FC<CardProps> = ({ children, className }) => (
+    <div className={`bg-black/50 backdrop-blur-lg border border-gray-700 rounded-2xl shadow-lg ${className}`}>
+        {children}
+    </div>
 );
