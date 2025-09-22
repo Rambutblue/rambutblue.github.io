@@ -208,7 +208,7 @@ const SandboxCanvas: React.FC<SandboxCanvasProps> = ({ selectedElement, isPaused
         };
     }, [draw, update, selectedElement, isPaused]);
 
-    return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full -z-10 bg-[#0A0A0A]" />;
+    return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full bg-[#ffffff]" />;
 };
 
 export default SandboxCanvas;

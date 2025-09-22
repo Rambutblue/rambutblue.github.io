@@ -6,8 +6,10 @@ interface GlassCardProps {
 }
 
 export const GlassCard: React.FC<GlassCardProps> = ({ children, className }) => (
-    <div className={`bg-gray-900/40 backdrop-blur-md border border-gray-400/20 rounded-2xl p-6 shadow-lg ${className}`}>
-        {children}
+    <div className={`relative p-px rounded-2xl bg-gradient-to-b from-cyan-400/30 to-transparent ${className}`}>
+        <div className="bg-gray-900/80 backdrop-blur-lg rounded-[15px] p-6 shadow-lg">
+            {children}
+        </div>
     </div>
 );
 
@@ -24,7 +26,7 @@ interface TagProps {
 }
 
 export const Tag: React.FC<TagProps> = ({ children }) => (
-    <span className="inline-block bg-cyan-400/20 text-cyan-300 text-xs font-medium mr-2 mb-2 px-2.5 py-1 rounded-full">
+    <span className="inline-block bg-cyan-900/50 text-cyan-300 text-xs font-medium mr-2 mb-2 px-3 py-1 rounded-full border border-cyan-700/50 transition-all duration-200 hover:bg-cyan-800/70 hover:text-cyan-200">
         {children}
     </span>
 );
