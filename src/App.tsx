@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import SandboxCanvas from './components/SandboxCanvas';
 import ElementPalette from './components/ElementPalette';
-import cvData from "./model/cvData";
-import {GlassCard, SectionTitle, Tag} from "./components/UIBaseComponents";
+import {ELEMENT_TYPES, type ElementType} from "./constants/SandboxConstants.ts";
+import cvData from './model/cvData.ts';
+import {GlassCard, SectionTitle, Tag} from "./components/UIBaseComponents.tsx";
 import {
-  DownloadIcon,
-  EyeIcon,
+  DownloadIcon, EyeIcon,
   EyeSlashIcon,
   GithubIcon,
   LinkedinIcon,
   MailIcon,
   PhoneIcon
-} from "./components/IconComponents";
-import { ELEMENT_TYPES, type ElementType } from './constants/SandboxConstants';
-
+} from "./components/IconComponents.tsx";
 
 const App: React.FC = () => {
   const [selectedElement, setSelectedElement] = useState<ElementType>(ELEMENT_TYPES.REACT);
@@ -25,7 +23,7 @@ const App: React.FC = () => {
   };
 
   return (
-      <div className="min-h-screen bg-[#0A0A0A] text-gray-200 font-sans antialiased relative overflow-x-hidden">
+      <div className="min-h-screen relative overflow-x-hidden">
         <SandboxCanvas key={sandboxKey} selectedElement={selectedElement} isPaused={false} />
 
         <main className={`max-w-5xl mx-auto p-4 sm:p-8 transition-opacity duration-500 ${isCvVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
@@ -126,3 +124,4 @@ const App: React.FC = () => {
 }
 
 export default App;
+
