@@ -15,7 +15,7 @@ const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: '"Press Start 2P", cursive',
+        fontFamily: '"Fusion Pixel 12px Proportional SC", cursive',
         h1: {
             fontSize: '3rem',
             fontWeight: 400,
