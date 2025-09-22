@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import {ELEMENT_TYPES, ELEMENTS, ElementType} from "../constants/SandboxConstants";
+import {ELEMENT_TYPES, ELEMENTS, type ElementType} from "../constants/SandboxConstants.ts";
 
 // UI for selecting sandbox elements and resetting the simulation, now with TypeScript.
 

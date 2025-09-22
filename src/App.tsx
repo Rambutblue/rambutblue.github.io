@@ -12,7 +12,7 @@ import {
   MailIcon,
   PhoneIcon
 } from "./components/IconComponents";
-import { ELEMENT_TYPES, ElementType } from './constants/SandboxConstants';
+import { ELEMENT_TYPES, type ElementType } from './constants/SandboxConstants';
 
 
 const App: React.FC = () => {

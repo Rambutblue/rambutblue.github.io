@@ -1,5 +1,5 @@
 ﻿import React, { useRef, useEffect, useCallback } from 'react';
-import { ELEMENT_TYPES, ELEMENTS, PARTICLE_SIZE, ElementType } from "../constants/SandboxConstants";
+import { ELEMENT_TYPES, ELEMENTS, PARTICLE_SIZE, type ElementType } from "../constants/SandboxConstants.ts";
 
 // This component contains the entire physics simulation logic, now fully typed.
 
@@ -28,7 +28,7 @@ const SandboxCanvas: React.FC<SandboxCanvasProps> = ({ selectedElement, isPaused
     useEffect(() => {
         const canvas = canvasRef.current;
         const resizeObserver = new ResizeObserver(entries => {
-            for (let entry of entries) {
+            for (const entry of entries) {
                 const { width, height } = entry.contentRect;
                 if (canvas) {
                     canvas.width = width;
