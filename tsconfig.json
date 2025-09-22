@@ -25,7 +25,6 @@
     ],
     "module": "esnext",
 
-    "isolatedModules": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
