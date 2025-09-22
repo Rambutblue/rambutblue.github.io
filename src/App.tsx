@@ -23,35 +23,26 @@ const App: React.FC = () => {
                 <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, py: 4 }}>
                     <Box sx={{
                         backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                        backdropFilter: 'blur(10px)',
-                        borderRadius: '16px',
-                        p: 4
+                        backdropFilter: 'blur(2px)',
+                        border: '4px solid #fff',
+                        boxShadow: '0 0 0 4px #000',
+                        p: 4,
+                        imageRendering: 'pixelated',
                     }}>
                         <header className="text-center mb-12">
-                            <Typography variant="h1" component="h1" sx={{
-                                fontWeight: 'extrabold',
-                                color: 'white',
-                                textShadow: '0 0 10px rgba(100, 200, 255, 0.5), 0 0 20px rgba(100, 200, 255, 0.3)'
-                            }}>{cvData.name}</Typography>
-                            <Typography variant="h5" component="p" sx={{
-                                color: 'primary.light',
-                                mt: 1,
-                                textShadow: '0 0 5px rgba(100, 200, 255, 0.5)'
-                            }}>{cvData.title}</Typography>
-                            <Typography variant="body1" component="p" sx={{
-                                color: 'grey.400',
-                                mt: 2,
-                                maxWidth: '600px',
-                                mx: 'auto'
-                            }}>{cvData.tagline}</Typography>
+                            <Typography variant="h1" component="h1">{cvData.name}</Typography>
+                            <Typography variant="h5" component="p" sx={{ color: 'primary.main', mt: 1 }}>{cvData.title}</Typography>
+                            <Typography variant="body1" component="p" sx={{ color: 'grey.400', mt: 2, maxWidth: '600px', mx: 'auto' }}>{cvData.tagline}</Typography>
                         </header>
 
                         <Grid container spacing={4}>
                             <Card sx={{
-                                transition: 'transform 0.3s, box-shadow 0.3s',
+                                border: '2px solid #fff',
+                                boxShadow: '4px 4px #000',
+                                transition: 'transform 0.2s, box-shadow 0.2s',
                                 '&:hover': {
-                                    transform: 'scale(1.05)',
-                                    boxShadow: '0 0 20px rgba(0, 200, 255, 0.5)'
+                                    transform: 'translate(-4px, -4px)',
+                                    boxShadow: '8px 8px #000'
                                 }
                             }}>
                                 <CardContent>
@@ -68,10 +59,12 @@ const App: React.FC = () => {
                                 </CardContent>
                             </Card>
                             <Card sx={{
-                                mb: 4, transition: 'transform 0.3s, box-shadow 0.3s',
+                                mb: 4, border: '2px solid #fff',
+                                boxShadow: '4px 4px #000',
+                                transition: 'transform 0.2s, box-shadow 0.2s',
                                 '&:hover': {
-                                    transform: 'scale(1.02)',
-                                    boxShadow: '0 0 15px rgba(0, 200, 255, 0.4)'
+                                    transform: 'translate(-2px, -2px)',
+                                    boxShadow: '6px 6px #000'
                                 }
                             }}>
                                 <CardContent>
@@ -81,10 +74,12 @@ const App: React.FC = () => {
                             </Card>
 
                             <Card sx={{
-                                transition: 'transform 0.3s, box-shadow 0.3s',
+                                border: '2px solid #fff',
+                                boxShadow: '4px 4px #000',
+                                transition: 'transform 0.2s, box-shadow 0.2s',
                                 '&:hover': {
-                                    transform: 'scale(1.02)',
-                                    boxShadow: '0 0 15px rgba(0, 200, 255, 0.4)'
+                                    transform: 'translate(-2px, -2px)',
+                                    boxShadow: '6px 6px #000'
                                 }
                             }}>
                                 <CardContent>
@@ -92,17 +87,17 @@ const App: React.FC = () => {
                                     {cvData.experience.map((exp, index) => (
                                         <Box key={index} sx={{ mb: 2 }}>
                                             <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>{exp.role}</Typography>
-                                            <Typography variant="body2" sx={{ color: 'primary.light' }}>{exp.company} | {exp.dates}</Typography>
+                                            <Typography variant="body2" sx={{ color: 'primary.main' }}>{exp.company} | {exp.dates}</Typography>
                                             <Typography variant="body2">{exp.description}</Typography>
                                         </Box>
                                     ))}
                                     {cvData.projects.map((project, index) => (
                                         <Box key={index} sx={{ mt: 2 }}>
                                             <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>{project.name}</Typography>
-                                            <Typography variant="body2" sx={{ color: 'primary.light' }}>{project.context} | {project.dates}</Typography>
+                                            <Typography variant="body2" sx={{ color: 'primary.main' }}>{project.context} | {project.dates}</Typography>
                                             <Typography variant="body2">{project.description}</Typography>
                                             <Box sx={{ mt: 1 }}>
-                                                {project.stack.map(tech => <Chip key={tech} label={tech} size="small" sx={{ mr: 1, mb: 1 }} />)}
+                                                {project.stack.map(tech => <Chip key={tech} label={tech} size="small" sx={{ mr: 1, mb: 1, fontFamily: 'monospace' }} />)}
                                             </Box>
                                         </Box>
                                     ))}
@@ -120,6 +115,8 @@ const App: React.FC = () => {
                         p: 1.5,
                         minWidth: 0,
                         backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                        border: '2px solid #fff',
+                        boxShadow: '2px 2px #000',
                         '&:hover': { backgroundColor: 'rgba(0, 0, 0, 0.8)' }
                     }}
                 >

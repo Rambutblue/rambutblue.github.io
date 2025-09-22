@@ -4,25 +4,45 @@ const theme = createTheme({
     palette: {
         mode: 'dark',
         primary: {
-            main: '#00bcd4',
+            main: '#FFD700', // Gold
         },
         secondary: {
-            main: '#f50057',
+            main: '#FF4500', // OrangeRed
         },
         background: {
             default: '#0A0A0A',
-            paper: 'rgba(10, 10, 10, 0.5)',
+            paper: 'rgba(10, 10, 10, 0.7)',
         },
     },
     typography: {
-        fontFamily: 'Inter, sans-serif',
+        fontFamily: '"Press Start 2P", cursive',
         h1: {
-            fontSize: '4rem',
-            fontWeight: 800,
+            fontSize: '3rem',
+            fontWeight: 400,
+            textShadow: '2px 2px #000',
         },
         h2: {
-            fontSize: '2rem',
-            fontWeight: 700,
+            fontSize: '1.5rem',
+            fontWeight: 400,
+            textShadow: '2px 2px #000',
+        },
+        h5: {
+            fontSize: '1.25rem',
+            fontWeight: 400,
+            textShadow: '1px 1px #000',
+        },
+        h6: {
+            fontSize: '1rem',
+            fontWeight: 400,
+            textShadow: '1px 1px #000',
+        },
+        body1: {
+            fontFamily: 'monospace',
+            fontSize: '1rem',
+        },
+        body2: {
+            fontFamily: 'monospace',
+            fontSize: '0.875rem',
         },
     },
 });

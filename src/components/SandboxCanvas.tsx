@@ -66,7 +66,7 @@ const SandboxCanvas: React.FC<SandboxCanvasProps> = ({ selectedElement, isPaused
             window.removeEventListener('mousedown', handleMouseDown);
             window.removeEventListener('mouseup', handleMouseUp);
             window.removeEventListener('mouseleave', handleMouseLeave);
-            if(animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+            if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
         };
     }, [setupGrid]);
 
@@ -162,20 +162,20 @@ const SandboxCanvas: React.FC<SandboxCanvasProps> = ({ selectedElement, isPaused
     useEffect(() => {
         const animate = () => {
             if (!isPaused) {
-                if(mousePos.current.isDown && mousePos.current.x > 0){
+                if (mousePos.current.isDown && mousePos.current.x > 0) {
                     const grid = gridRef.current;
                     const cols = colsRef.current;
                     const rows = rowsRef.current;
-                    if(grid){
+                    if (grid) {
                         const mouseCol = Math.floor(mousePos.current.x / PARTICLE_SIZE);
                         const mouseRow = Math.floor(mousePos.current.y / PARTICLE_SIZE);
                         const brushSize = 4;
-                        for(let i = -brushSize; i <= brushSize; i++){
-                            for(let j = -brushSize; j <= brushSize; j++){
-                                if(Math.random() > 0.65){
+                        for (let i = -brushSize; i <= brushSize; i++) {
+                            for (let j = -brushSize; j <= brushSize; j++) {
+                                if (Math.random() > 0.65) {
                                     const col = mouseCol + i;
                                     const row = mouseRow + j;
-                                    if(col >= 0 && col < cols && row >= 0 && row < rows && grid[col][row] === ELEMENT_TYPES.EMPTY){
+                                    if (col >= 0 && col < cols && row >= 0 && row < rows && grid[col][row] === ELEMENT_TYPES.EMPTY) {
                                         grid[col][row] = selectedElement;
                                     }
                                 }
@@ -189,7 +189,7 @@ const SandboxCanvas: React.FC<SandboxCanvasProps> = ({ selectedElement, isPaused
                     if (grid && cols > 0) {
                         const randomCol = Math.floor(Math.random() * cols);
                         if (grid[randomCol][0] === ELEMENT_TYPES.EMPTY) {
-                            const elementKeys = Object.keys(ELEMENTS).filter(id => parseInt(id,10) !== ELEMENT_TYPES.STATIC).map(id => parseInt(id,10));
+                            const elementKeys = Object.keys(ELEMENTS).filter(id => parseInt(id, 10) !== ELEMENT_TYPES.STATIC).map(id => parseInt(id, 10));
                             const randomElement = elementKeys[Math.floor(Math.random() * elementKeys.length)];
                             // FIX: Added 'as ElementType' to assert the type.
                             grid[randomCol][0] = randomElement as ElementType;
@@ -204,11 +204,11 @@ const SandboxCanvas: React.FC<SandboxCanvasProps> = ({ selectedElement, isPaused
         animationFrameId.current = requestAnimationFrame(animate);
 
         return () => {
-            if(animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+            if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
         };
     }, [draw, update, selectedElement, isPaused]);
 
-    return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full bg-[#ffffff]" />;
+    return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full bg-[#1a1a1a]" />;
 };
 
 export default SandboxCanvas;
